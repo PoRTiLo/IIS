@@ -1,10 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
-      <title>RT-Mistrostvi ve fotbalu</title>
-   </head>
-   <body>
+
 		<?php
 /**
  * todo : zkontrolovat soupisku-zapas, koliduji jmena soupiske a hrajicich muzstev
@@ -28,9 +23,9 @@
 					$_SESSION['lang'] = $languageCz;
 				else
 					$_SESSION['lang'] = $languageEng;
-								
+
 				$create = TRUE;
-				
+
 				echo "<h2>".$text['n_create'][ $_SESSION['lang']]."</h2>";
 
 				$query = mysql_query("CREATE TABLE IF NOT EXISTS `USER` (
@@ -242,7 +237,7 @@
 											`SOUPISKA1` varchar(8),
 											`SOUPISKA2` varchar(8),
 											`SKUPINA` VARCHAR(1) DEFAULT '',
-											PRIMARY KEY (`ID_ZAPAS`)											
+											PRIMARY KEY (`ID_ZAPAS`)
 											)DEFAULT CHARSET=latin2;"
 											);
 				if( !$query )
@@ -390,7 +385,7 @@
 						/*		('GER', 'Nemecko', 'A', 'Pro Německo - Německem'),
 								('ECU', 'EKVADOR', 'A', 'Ekvádor je můj život, fotbal je má vášeň, vítězství můj cíl'),
 								('POL', 'POLSKO', 'A', 'Bílo-červení! Odvážní a nebezpeční!'),
-						 * 
+						 *
 						 */
 					if( !$query )
 					{
@@ -580,6 +575,6 @@
 					 </form>
 				";
 			}
+         require_once('show_head.php');
+   require_once('head.php');
 		?>
-	</body>
-</html>

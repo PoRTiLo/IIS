@@ -10,6 +10,7 @@
 
 		<h2>Odhlá¹en!</h2>
 		<?php
+         require_once('head.php');
 			echo "<a href=http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/index.html class=menu>Pro pøihlá¹ení mù¾ete pokraèovat.</a>";
 		?>
 	</body>

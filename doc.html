@@ -12,59 +12,59 @@
 </head>
 <body>
 
-<!-- Zkontrolujte prosím nastavení kódování v hlavièce dokumentu 
-     podle pou¾itého editoru -->
+<!-- Zkontrolujte prosï¿½m nastavenï¿½ kï¿½dovï¿½nï¿½ v hlaviï¿½ce dokumentu 
+     podle pouï¿½itï¿½ho editoru -->
 
-<h1>Mistrovství svìta ve fotbalu</h1> <!-- Nahradte názvem svého zadání -->
+<h1>Mistrovstvï¿½ svï¿½ta ve fotbalu</h1> <!-- Nahradte nï¿½zvem svï¿½ho zadï¿½nï¿½ -->
 
 <dl>
-	<dt>Autoøi</dt>
-	<dd>První autor 
+	<dt>Autoï¿½i</dt>
+	<dd>Prvnï¿½ autor 
 	    <a href="mailto:xsendl00@stud.fit.vutbr.cz">xsendl00@stud.fit.vutbr.cz</a> -
-		správa u¾ivatelù a u¾ivatelské rozhraní
+		sprï¿½va uï¿½ivatelï¿½ a uï¿½ivatelskï¿½ rozhranï¿½
 	</dd>
-	<dd>Druhý autor
+	<dd>Druhï¿½ autor
 	    <a href="mailto:xkovac21@stud.fit.vutbr.cz">xkovac2102@stud.fit.vutbr.cz</a> - 
-		databázový subsystém
+		databï¿½zovï¿½ subsystï¿½m
 	</dd>
 	<dt>URL aplikace</dt>
 	<dd><a href="http://stud.fit.vutbr.cz/~xsendl00/IIS">http://stud.fit.vutbr.cz/~xsendl00/IIS</a></dd>
-	<dd>(pokud má aplikace více vstupních stránek, napi¹te obdobnì dal¹í URL)</dd>
+	<dd>(pokud mï¿½ aplikace vï¿½ce vstupnï¿½ch strï¿½nek, napiï¿½te obdobnï¿½ dalï¿½ï¿½ URL)</dd>
 </dl>
 
-<h2>U¾ivatelé systému pro testování</h2>
-<p>Uveïte prosím existující zástupce <strong>v¹ech rolí u¾ivatelù</strong>.</p>
+<h2>Uï¿½ivatelï¿½ systï¿½mu pro testovï¿½nï¿½</h2>
+<p>Uveï¿½te prosï¿½m existujï¿½cï¿½ zï¿½stupce <strong>vï¿½ech rolï¿½ uï¿½ivatelï¿½</strong>.</p>
 <table>
 <tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
-<tr><td>admin</td><td>admin</td><td>Administrátor</td></tr>
+<tr><td>admin</td><td>admin</td><td>Administrï¿½tor</td></tr>
 </table>
 
 <h2>Implementace</h2>
 <h2>Implementace</h2>
-<p>Informaèní systém Mistroství svìta ve fotbalu, rozli¹uje dva typy u¾ivatelù. To je mens¹í zmìna oproti pùvodnímu USE-CASE diagram.
-Uznali jsm eza vhodné u¾ivatele èlen oranizaèního týmu a statistika slouèit do jedno a to do u¾ivatela admin. Tento u¾ivatel má plné právo 
-pracovat jak s informaèním informaèním systémem tak provádìt akce nad  databází je¾ jsou nezbytná. Dal¹ím u¾ivatelm IS je obyèejný user,
-je¾ databázi mù¾e procházet ani¾ by se musel registrovat èi pøihla¹ovat. To sebou nese ale jistá omezení - svým chovaním nemù¾e nijak IS ovlivnit.
-Je pouze jenom prohlí¾eèem. O zobrazovaní ùdaju pro prohlízení se starají souboru zaèínající slovem show jako show_match_new.php show_teams_new.php a dal¹í.
+Informaï¿½nï¿½ systï¿½m Mistrostvï¿½ svï¿½ta ve fotbalu, rozliï¿½uje dva typy uï¿½ivatelï¿½. To je mensï¿½ï¿½ zmï¿½na oproti pï¿½vodnï¿½mu USE-CASE diagram.
+Uznali jsm eza vhodnï¿½ uï¿½ivatele ï¿½len oranizaï¿½nï¿½ho tï¿½mu a statistika slouï¿½it do jedno a to do uï¿½ivatela admin. Tento uï¿½ivatel mï¿½ plnï¿½ prï¿½vo 
+pracovat jak s informaï¿½nï¿½m informaï¿½nï¿½m systï¿½mem tak provï¿½dï¿½t akce nad  databï¿½zï¿½ jeï¿½ jsou nezbytnï¿½. Dalï¿½ï¿½m uï¿½ivatelm IS je obyï¿½ejnï¿½ user,
+jeï¿½ databï¿½zi mï¿½e prochï¿½zet aniï¿½ by se musel registrovat ï¿½i pï¿½ihlaï¿½ovat. To sebou nese ale jistï¿½ omezenï¿½ - svï¿½m chovanï¿½m nemï¿½e nijak IS ovlivnit.
+Je pouze jenom prohlï¿½eï¿½em. O zobrazovanï¿½ ï¿½daju pro prohlï¿½zenï¿½ se starajï¿½ souboru zaï¿½ï¿½najï¿½cï¿½ slovem show jako show_match_new.php show_teams_new.php a dalï¿½ï¿½.
 
-Vratíme se zpìt k administrátorovi. V jeho pravomoceh je pøidávat týmy (add_team_new.php) editova je(edit_team.php). Soubory je¾ slou¾í k editaci zaèínají slùvkem edit
-a k pøidávání slou¾í add.
+Vratï¿½me se zpï¿½t k administrï¿½torovi. V jeho pravomoceh je pï¿½idï¿½vat tï¿½my (add_team_new.php) editova je(edit_team.php). Soubory jeï¿½ slouï¿½ï¿½ k editaci zaï¿½ï¿½najï¿½ slï¿½vkem edit
+a k pï¿½idï¿½vï¿½nï¿½ slouï¿½ï¿½ add.
 
 
 
 <h2>Instalace</h2>
-Pro funkènost informaèního systému je potøeba naplnit databázi. K tomu slou¾í soubor install.php a <a href='connect.inc'>connect.inc</a><br>Connect.inc je soubor obsahující informace k pøipojení k databázi, musíte jej tedy vplnit:
+Pro funkï¿½nost informaï¿½nï¿½ho systï¿½mu je potï¿½eba naplnit databï¿½zi. K tomu slouï¿½ï¿½ soubor install.php a <a href='connect.inc'>connect.inc</a><br>Connect.inc je soubor obsahujï¿½cï¿½ informace k pï¿½ipojenï¿½ k databï¿½zi, musï¿½te jej tedy vplnit:
 <ul>
 DEFINE('DB_USER','xsendl00');
 DEFINE('DB_PASS','n4jertur');
 DEFINE('DB_SOURCE','localhost:/var/run/mysql/mysql.sock');
 DEFINE('DB_DATABASE','RT');
-<li>DB_USER - u¾ivatelské jméno datatbáze</li>
-<li>BB_PASS - heslo do databáze</li>
-<li>DB_SOURCE - umístìní databáze</li>
-<li>DB_DATABASE - jméno databáze</li>
+<li>DB_USER - uï¿½ivatelskï¿½ jmï¿½no datatbï¿½ze</li>
+<li>BB_PASS - heslo do databï¿½ze</li>
+<li>DB_SOURCE - umï¿½stï¿½nï¿½ databï¿½ze</li>
+<li>DB_DATABASE - jmï¿½no databï¿½ze</li>
 </ul>
-Nyní ji¾ mù¾ete spustit script <a href='install.php'>install.php</a>, který se pomocí ji¾ zmiòovaného souboru connect.inc pøipojí k databázi a naplní ji minimálním
-mno¾stvím údajù, na kterých je mo¾né si vyzkou¹et funkènost informaèního systému.
+Nynï¿½ jiï¿½ mï¿½ete spustit script <a href='install.php'>install.php</a>, kterï¿½ se pomocï¿½ jiï¿½ zmiï¿½ovanï¿½ho souboru connect.inc pï¿½ipojï¿½ k databï¿½zi a naplnï¿½ ji minimï¿½lnï¿½m
+mnoï¿½stvï¿½m ï¿½dajï¿½, na kterï¿½ch je moï¿½nï¿½ si vyzkouï¿½et funkï¿½nost informaï¿½nï¿½ho systï¿½mu.
 </body>
 </html>

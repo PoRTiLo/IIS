@@ -7,9 +7,10 @@
 	include 'file.php';                   // katalog jmen použitých souborů - tady musí být přímá konstanta
 	include $files['text'];               // katalog textových konstant
 	include $files['const'];           // různé systémové a jiné konstanty
-	require_once('connect.inc');
+	$file = $files["connect"];
+   require_once ("$file");
 
-	
+
 
 	/**
 	 * Zobrazi informace stavu prihlaseni uzivatele
@@ -71,7 +72,7 @@
 	/**
 	 *
 	 * @global <type> $text
-	 * @global <type> $defaultLanguage 
+	 * @global <type> $defaultLanguage
 	 */
 	function callDropdownFamily() {
 
@@ -95,7 +96,7 @@
 	 * @param <type> $pairs
 	 * @param <type> $firstentry
 	 * @param <type> $selectedkey
-	 * @return <type> 
+	 * @return <type>
 	 */
 	function createDropdown($identifier, $pairs, $firstentry, $selectedkey="") {
 
@@ -354,7 +355,7 @@
 
 		$pairs[$text['f_group'][$defaultLanguage]] = $text['f_group'][$defaultLanguage];
 		$pairs[$text['f_eightfinal'][$defaultLanguage]] = $text['f_eightfinal'][$defaultLanguage];
-		$pairs[$text['f_quarterfinal'][$defaultLanguage]] = $text['f_quarterfinal'][$defaultLanguage];		
+		$pairs[$text['f_quarterfinal'][$defaultLanguage]] = $text['f_quarterfinal'][$defaultLanguage];
 		$pairs[$text['f_semifinal'][$defaultLanguage]] = $text['f_semifinal'][$defaultLanguage];
 		$pairs[$text['f_final'][$defaultLanguage]] =$text['f_final'][$defaultLanguage];
 
@@ -420,6 +421,8 @@
     * @TODO doelat mezery ve jemnech
     */
    function checkNameM() {
+      global $text;
+      global $error;
       if( $_POST["name"] == "" )	// jmeno nesmi byt prazdne
       {
          $error["name"] = $text['no_name'][ $_SESSION['lang']];
@@ -443,6 +446,8 @@
     * @TODO doelat mezery ve jemnech
     */
    function checkSurnameM() {
+      global $text;
+      global $error;
       if( $_POST["surname"] == "" )	// prijmeni nesmi byt prazdne
       {
          $error["surname"] = $text['no_surname'][ $_SESSION['lang']];
@@ -464,6 +469,8 @@
     * Kontrola rodinneho stavu - povinne
     */
    function checkFamilyM() {
+      global $text;
+      global $error;
       if( $_POST["family"] == "---" )
       {
          $error['family']= $text['no_family'][ $_SESSION['lang']];
@@ -477,6 +484,8 @@
     * Kontrola E-emilu
     */
    function checkEmail() {
+      global $text;
+      global $error;
       if( !ereg("^[_a-zA-Z0-9\.\-]+@[_a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,4}$",$_POST["email"]) )
       {
          $error['email']= $text['no_email'][ $_SESSION['lang']];
@@ -489,6 +498,8 @@
     * Kontrola rodneho cisla
     */
    function checkPersonalIdNum() {
+      global $text;
+      global $error;
       if( !ereg("^[0-9]{2}[0156]{1}[0-9]{1}[0-3]{1}[0-9]{1}[ /]?[0-9]{4}$",$_POST["perIdNum"]) )
       {
          $error['perIdNum']= $text['no_perIdNum'][ $_SESSION['lang']];
@@ -502,6 +513,8 @@
     * Kontola telefonniho cisla
     */
    function checkPhoneNumber() {
+      global $text;
+      global $error;
       if( !ereg("^(([\+]|00){1}420)?[ /]?[0-9]{3}[ /]?[0-9]{3}?[0-9]{3}$",$_POST["phone"]) )
       {
          $error['phone']= $text['no_phone'][ $_SESSION['lang']];
@@ -512,9 +525,11 @@
 
 
    /**
-    * KOntrola datumu - povinne
+    * Kontrola datumu - povinne
     */
    function checkDateM() {
+      global $text;
+      global $error;
       if( $_POST["date"] == "" )
       {
          $error['date']= $text['no_date'][ $_SESSION['lang']];
@@ -539,6 +554,8 @@
     * Kontrola hraci pozice - povinne
     */
    function checkPozicionM() {
+      global $text;
+      global $error;
       if( $_POST["pozicion"] == "---" )
       {
          $error['pozicion']= $text['no_pozicion'][ $_SESSION['lang']];
@@ -552,6 +569,8 @@
     * Kontrola tymu - povinne
     */
    function checkTeamM() {
+      global $text;
+      global $error;
       if( $_POST["team"] == "---" )
       {
          $error['team']= $text['no_team'][ $_SESSION['lang']];
@@ -565,6 +584,8 @@
     * Kontrola domaciho tymu
     */
    function checkHomeClub() {
+      global $text;
+      global $error;
       if( strlen($_POST["home_club"]) > 20 )
       {
          $error['home_club']= $text['no_home_club'][ $_SESSION['lang']];
@@ -578,6 +599,8 @@
     * Kontrola minuleho tymu
     */
    function checkLastClub() {
+      global $text;
+      global $error;
       if( strlen($_POST["last_club"]) > 20 )
       {
          $error["last_club"] = $text['no_last_club'][ $_SESSION['lang']];
@@ -594,6 +617,8 @@
     * @TODO zkontolovat jaky jde zadat rozsah minut, jesli i minus a nebo tvar 00012
     */
    function checkMinuteM() {
+      global $text;
+      global $error;
       if( $_POST["minute"] == "" )
       {
          $error["minute"] = $text['no_minute'][ $_SESSION['lang']];
@@ -615,6 +640,8 @@
     * Kontrola vyberu zapsu - povinne
     */
    function checkMatchM() {
+      global $text;
+      global $error;
       if( $_POST["match"] == "---" )
       {
          $error["match"] = $text['no_team5'][ $_SESSION['lang']];
@@ -630,6 +657,8 @@
     * Kontrola vyberu typu akce - povinne
     */
    function checkTypeActionM() {
+      global $text;
+      global $error;
       if( $_POST["type"] == "---" )
       {
          $error["action"] = $text['no_action'][ $_SESSION['lang']];
@@ -644,6 +673,8 @@
     * Kontrola vyberu typu hrace - povinne
     */
    function checkPlayerM() {
+      global $text;
+      global $error;
       if( $_POST["player"] == "---" )
       {
          $error["player"] = $text['no_player'][ $_SESSION['lang']];
@@ -661,6 +692,8 @@
     * Kontrola data konani zapasu
     */
    function checkMatchDateM() {
+      global $text;
+      global $error;
       if( $_POST["date"] == "" )
       {
          $error['date']= $text['no_date'][ $_SESSION['lang']];
@@ -672,11 +705,13 @@
       else
          $error['date']= "";
    }
-         
+
    /**
     * Kontrola mista konani zapasu - povinne
     */
    function checkMatchPlaceM() {
+      global $text;
+      global $error;
       if( $_POST["place"] == "" )
       {
          $error['place']= $text['no_place'][ $_SESSION['lang']];
@@ -694,6 +729,8 @@
     * Kontrola skore - povinne
     */
    function checkMatchScoreM() {
+      global $text;
+      global $error;
       if( $_POST["score"] == "" )
       {
          $error['score']= "";
@@ -715,6 +752,8 @@
     * Kontrola nastaveni - povinne
     */
    function checkMatchOvertimeM() {
+      global $text;
+      global $error;
       if( $_POST["over_time"] == "" )
       {
          $error['over_time']= "";
@@ -736,6 +775,8 @@
     * Kontrola poctu lidi - povinne
     */
    function checkMatchPeopleM() {
+      global $text;
+      global $error;
       if( $_POST["people"] == "" )
       {
          $error['people']= "";
@@ -757,6 +798,8 @@
     * Kontrola typu zapasu - povinne
     */
    function checkMatchTypeM() {
+      global $text;
+      global $error;
       if( $_POST["type"] == "---" )
       {
          $error['type']= $text['no_type'][ $_SESSION['lang']];
@@ -774,6 +817,8 @@
     * Kontrola domacich - povinne
     */
    function checkMatchHomeM() {
+      global $text;
+      global $error;
       if( $_POST["team"] == $_POST["team2"] && ($_POST["team2"]!="---" || $_POST["team2"]!="---") )
       {
          $error['home_1']= $text['no_team3'][ $_SESSION['lang']];
@@ -805,6 +850,8 @@
     * Kontrola hostu - povinne
     */
    function checkMatchGuestM() {
+      global $text;
+      global $error;
       if( $_POST["team2"] == "---" )
       {
          $error['guest']= $text['no_team'][ $_SESSION['lang']];
@@ -818,6 +865,8 @@
     * Kontrola hlavniho rozhodciho - povinne
     */
    function checkMatchRefereeM() {
+      global $text;
+      global $error;
       if( ($_POST["referee"] == $_POST["referee2"] && ($_POST["referee"]!="---" || $_POST["referee2"]!="---")) ||
          ($_POST["referee"] == $_POST["referee3"] && ($_POST["referee"]!="---" || $_POST["referee3"]!="---")) ||
          ($_POST["referee"] == $_POST["referee4"] && ($_POST["referee"]!="---" || $_POST["referee4"]!="---")) ||
@@ -851,6 +900,8 @@
     * Kontrola pomezniho rozhodciho - povinne
     */
    function checkMatchReferee2M() {
+      global $text;
+      global $error;
       if( $_POST["referee2"] == "---" )
       {
          $error['referee2']= $text['no_referee'][ $_SESSION['lang']];
@@ -864,6 +915,8 @@
     * Kontrola pomezniho rozhodciho - povinne
     */
    function checkMatchReferee3M() {
+      global $text;
+      global $error;
       if( $_POST["referee3"] == "---" )
       {
          $error['referee3']= $text['no_referee'][ $_SESSION['lang']];
@@ -877,6 +930,8 @@
     * Kontrola pomocneho rozhodciho - povinne
     */
    function checkMatchReferee4M() {
+      global $text;
+      global $error;
       if( $_POST["referee4"] == "---" )
       {
          $error['referee4']= $text['no_referee'][ $_SESSION['lang']];
@@ -892,6 +947,8 @@
     * Kontrola zkratky tymu - povinne
     */
    function checkCodeM() {
+      global $text;
+      global $error;
       if( $_POST["code"] == "" )
       {
          $error["code"] = $text['no_code'][ $_SESSION['lang']];
@@ -913,6 +970,8 @@
     * Kontrola jmena tymu - povinne
     */
    function checkNameStateM() {
+      global $text;
+      global $error;
       if( $_POST["state"] == "" )
       {
          $error["state"] = $text['no_state1'][ $_SESSION['lang']];
@@ -930,6 +989,8 @@
     * Kontrola vyberu skupiny - povinne
     */
    function checkGrooupM() {
+      global $text;
+      global $error;
       if( $_POST["group"] == "-" )
       {
          $error['group']= $text['no_group'][ $_SESSION['lang']];
@@ -943,6 +1004,8 @@
     * Kontrola sloganu
     */
    function checkSlogan() {
+      global $text;
+      global $error;
       if( strlen($_POST["slogan"]) > 150 )
       {
          $error["slogan"] = $text['no_slogan'][ $_SESSION['lang']];
@@ -958,6 +1021,9 @@
     * Kontrola rodiste - povinne
     */
    function checkHometownM() {
+
+      global $text;
+      global $error;
       if( $_POST["hometown"] == "" )
       {
          $error['hometown']= $text['no_hometown'][ $_SESSION['lang']];
@@ -974,6 +1040,8 @@
     * Kontrola rodiste
     */
    function checkHometown() {
+      global $text;
+      global $error;
       if( strlen($_POST["hometown"]) > 25 )
       {
          $error["hometown"] = $text['no_hometown1'][ $_SESSION['lang']];
@@ -987,6 +1055,8 @@
     * Kontrola ulice
     */
    function checkStreet() {
+      global $text;
+      global $error;
       if( strlen($_POST["street"]) > 20 )
       {
          $error["street"] = $text['no_street'][ $_SESSION['lang']];
@@ -1000,6 +1070,8 @@
     * Kontrola mesta
     */
    function checkCity() {
+      global $text;
+      global $error;
       if( strlen($_POST["city"]) > 20 )
       {
          $error["city"] = $text['no_city'][ $_SESSION['lang']];
@@ -1013,6 +1085,8 @@
     * Kontrola smerovaciho cisla - povinne
     */
    function checkZipM() {
+      global $text;
+      global $error;
       if( $_POST["zip"] == "" )
       {
          $error['zip']= "";
@@ -1033,6 +1107,8 @@
     * Kontrola smerovaciho cisla
     */
    function checkZip() {
+      global $text;
+      global $error;
       if( !ereg("^([0-9]{4,5})$",$_POST["zip"]) )
       {
          $error['zip']= $text['no_zip'][ $_SESSION['lang']];;
@@ -1046,6 +1122,8 @@
     * Kontrola statu - povinne
     */
    function checkStateM() {
+      global $text;
+      global $error;
       if( $_POST["state"] == "" )
       {
          $error['state']= "";
@@ -1066,6 +1144,8 @@
     * Kontrola statu
     */
    function checkState() {
+      global $text;
+      global $error;
       if( strlen($_POST["state"]) > 3 || strlen($_POST["state"]) < 2 )
          {
          $error["state"] = $text['no_state'][ $_SESSION['lang']];

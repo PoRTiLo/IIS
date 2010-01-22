@@ -13,19 +13,20 @@
     *
     * @global <type> $error
     * @global <type> $text
+    * @global <type> $files 
     */
    function writeForm() {
       global $error;
       global $text;
+      global $files;
       echo"
-      <div class=\"formular\">
-         <form method=post action=".$files["automaticLogout"].">
-               <table>
-                  <h1><font color=red>Automaticky odhlásen</font><h1>
-                  <tr><td><a href=".$files["hlavniStrana"].">Prosim pokracujte</a></td></tr>
-               </table>
-         </form>
-      </div>
+         <div class=\"formular\">
+            <form method=post action=".$files["yesLogin"].">
+                  <table>
+                     <h1><font color=red>Vítejte</font><h1>
+                  </table>
+            </form>
+         </div>
       ";
    }
 

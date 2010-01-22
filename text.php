@@ -335,7 +335,7 @@ $text = array (
 															'quarterfinal'),
 	'f_eightfinal'					=>			array('osmi finále',
 															'eightfinal'),
-	'f_semifinal'					=>			array('semifinále',
+   'f_semifinal'					=>			array('semifinále',
 															'semifinal'),
 	'f_final'						=>			array('finále',
 															'final'),
@@ -364,7 +364,7 @@ $text = array (
    's_id'							=>           array('Id',
 																'Id'),
     //show groups
-    's_skA'							=>   			array('Skupina A','Group A'),
+   's_skA'							=>   			array('Skupina A','Group A'),
     's_skB'							=>   			array('Skupina B','Group B'),
     's_skC'							=> 		  	array('Skupina C','Group C'),
     's_skD'							=>   			array('Skupina D','Group D'),
@@ -378,113 +378,41 @@ $text = array (
     's_tym3'						=> 			array('Tým 3: ','Team 3: '),
     's_tym4'						=> 			array('Tým 4: ','Team 4: '),
 	// players
-	  's_meno'						=> 			array('Jméno','Name'),
-	  's_priezv'					=> 			array('Pøijmení','Surename'),
-	  's_pozicia'					=> 			array('Pozice','Position'),
-	  's_domklub'					=> 			array('Domácí klub','Home club'),
+	 's_meno'						=> 			array('Jméno','Name'),
+	 's_priezv'    				=> 			array('Pøijmení','Surename'),
+	 's_pozicia'					=> 			array('Pozice','Position'),
+	 's_domklub'					=> 			array('Domácí klub','Home club'),
     's_team'						=> 			array('Tým','Team'),
     's_hraci'						=> 			array('Seznam hráèù','List of players'),
     's_edit'						=> 			array('Edituj','Edit'),
-    's_editplayer'				=> 		array('Edituj hráèe','Edit players'),
-    's_ref'                =>   array('Edituj rozhodèí','Edit referees'),
-    's_editteams' => array('Edituj týmy','Edit teams'),
-    's_refshow' => array('Seznam rozhodèí','List of referees'),
+    's_editplayer'				=>          array('Edituj hráèe','Edit players'),
+    's_ref'                   =>          array('Edituj rozhodèí','Edit referees'),
+    's_editteams'             =>          array('Edituj týmy','Edit teams'),
+    's_refshow'               =>          array('Seznam rozhodèí','List of referees'),
     //match
-    's_date' =>  array('Datum','Date'),
-    's_home' =>  array('Domáci','Home'),
-    's_guest' => array('Hosté','Guest'),
-    's_score' => array('Skóre','Score'),
-    's_type' => array('Typ zápasu','Type of match'),
-    's_time' => array('Èas','Time'),
-    's_people' => array('Lidé','People'),
-    's_ref1' => array('Hlavní rozhodèí','Referee 1'),
-    's_ref2' => array('Pomezní rozhodèí','Referee 2'),
-    's_ref3' => array('Pomezní rozhodèí','Referee 3'),
-    's_ref4' => array('Pomocný rozhodèí','Referee 4'),
-	's_zapshow'=> array('Seznam zápasù','List of matches'),
-	 's_zapedit' => array('Edituj zápasy','Edit matches'),
-	 's_akcedit' => array('Edituj akce','Edit actions'),
-    's_dopredit' => array('Edituj doprovodní tým','Edit escort team'),
-    's_dopshow' => array('Doprovodní týmy','Escort teams'),
+    's_date'                  =>          array('Datum','Date'),
+    's_home'                  =>          array('Domáci','Home'),
+    's_guest'                 =>          array('Hosté','Guest'),
+    's_score'                 =>          array('Skóre','Score'),
+    's_type'                  =>          array('Typ zápasu','Type of match'),
+    's_time'                  =>          array('Èas','Time'),
+    's_people'                =>          array('Lidé','People'),
+    's_ref1'                  =>          array('Hlavní rozhodèí','Referee 1'),
+    's_ref2'                  =>          array('Pomezní rozhodèí','Referee 2'),
+    's_ref3'                  =>          array('Pomezní rozhodèí','Referee 3'),
+    's_ref4'                  =>          array('Pomocný rozhodèí','Referee 4'),
+    's_zapshow'               =>          array('Seznam zápasù','List of matches'),
+	 's_zapedit'               =>          array('Edituj zápasy','Edit matches'),
+	 's_akcedit'               =>          array('Edituj akce','Edit actions'),
+    's_dopredit'              =>          array('Edituj doprovodní tým','Edit escort team'),
+    's_dopshow'               =>          array('Doprovodní týmy','Escort teams'),
 	// tabulka
 
-    's_menu' => array('
-        <div class="hlavicka">
-				<div class="menu_top">
-				<ul id="top">
-					<li><a class="link01" href="show_teams_new.php">Týmy</a>
-					<ul class="submenu_top type02">
-							<li><a class="active podkat" href="add_team_new.php">Pridat tým</a></li>
-							<li><a class="podkat" href="edit_team_new.php">Editovat tým</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="show_players_new.php">Hráèi</a>
-					<ul class="submenu_top type02">
-							<li><a class="active podkat" href="add_player_new.php">Pridat hráèe</a></li>
-							<li><a class="podkat" href="edit_player_new.php">Editovat hráèe</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="#">Skupiny</a>
-						<ul class="submenu_top type02">
-							<li><a class="podkat" href="show_skupina_A.php">Skupina A</a></li>
-							<li><a class="podkat" href="show_skupina_B.php">Skupina B</a></li>
-							<li><a class="podkat" href="show_skupina_C.php">Skupina C</a></li>
-							<li><a class="podkat" href="show_skupina_D.php">Skupina D</a></li>
-							<li><a class="podkat" href="show_skupina_E.php">Skupina E</a></li>
-							<li><a class="podkat" href="show_skupina_F.php">Skupina F</a></li>
-							<li><a class="podkat" href="show_skupina_G.php">Skupina G</a></li>
-							<li><a class="podkat" href="show_skupina_H.php">Skupina H</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="show_referees_new.php">Rozhodèí</a>
-						<ul class="submenu_top type02">
-							<li><a class="active podkat" href="add_referee_new.php">Pridat rozhodèí</a></li>
-							<li><a class="podkat" href="edit_referee_new.php">Editovat rozhodèí</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="show_actions_new.php">Akce</a>
-						<ul class="submenu_top type02">
-							<li><a class="active podkat" href="add_action_new.php">Pridat akci</a></li>
-							<li><a class="podkat" href="edit_action_new.php">Editovat akci</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="show_match_new.php">Zápasy</a>
-						<ul class="submenu_top type02">
-							<li><a class="active podkat" href="add_match_new.php">Pridat zápas</a></li>
-							<li><a class="podkat" href="edit_match_new.php">Editovat zápas</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="#">Statistika</a>
-						<ul class="submenu_top type02">
-							<li><a class="podkat" href="#">Nejlep¹í strelci</a></li>
-							<li><a class="podkat" href="#">Nejvíc karet</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="#">Data</a>
-					<ul class="submenu_top type02">
-							<li><a class="active podkat" href="import_new.php">Import</a></li>
-							<li><a class="podkat" href="export_new.php">Export</a></li>
-						</ul>
-					</li>
-					
-					<li><a class="link01" href="show_escort_new.php">Doprovodní tým</a>
-					<ul class="submenu_top type02">
-							<li><a class="active podkat" href="add_escort_new.php">Pridat doprovodní tým</a></li>
-							<li><a class="podkat" href="edit_escort_new.php">Editovat doprovodní tým</a></li>
-						</ul>
-					</li>
-					<li><a class="link01" href="add_user.php">Registrovat</a></li>
-					<li><a class="link01" href="logout.php">Log out</a></li>
-				</ul>
-				</div>
-			</div>
-		</div>
-    </br>
-    </br>
-    </br>','xxxxx'),
+
 	// tymy
 
-	// .....
+	// HTML
+   'html_name'                =>          array('Informacni system - Mistrostvi svet ave fotbalu','IIS - Champions League'),
 
 
 'sentinel'           			 =>      	array('',''));

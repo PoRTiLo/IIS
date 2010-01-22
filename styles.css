@@ -79,7 +79,7 @@ background-image:url('background.jpg');
 .hlavicka .menu_top {
 	width: auto;
 	float: left;
-	position: relative;	
+	position: relative;
 	margin: 0 0 0 40px;
 }
 .hlavicka ul {
@@ -93,10 +93,10 @@ background-image:url('background.jpg');
 	border-color: #01B4FF;
 	list-style-type: none;
 }
-.hlavicka ul li {	
+.hlavicka ul li {
 	float: left;
 	position: relative;
-	margin: 10px 5px 0 5px;	
+	margin: 10px 5px 0 5px;
 }
 .hlavicka ul li a {
 	text-decoration: none;
@@ -148,10 +148,10 @@ background-image:url('background.jpg');
 	height: auto;
 	float: none;
 	padding: 10px 0px 18px 5px;
-	margin: 0;	
+	margin: 0;
 	background-color: #000B13;
 	border: 1px solid #303030;
-	text-align: left;	
+	text-align: left;
 }
 .hlavicka ul li:hover ul.submenu_top li, .hlavicka ul li.over ul.submenu_top li {
 	width: 130px;
@@ -169,7 +169,7 @@ background-image:url('background.jpg');
 	background-color: transparent;
 	font-size: 12px
 }
-.hlavicka ul li:hover ul.submenu_top li a:hover, .hlavicka ul li.over ul.submenu_top li a:hover {	
+.hlavicka ul li:hover ul.submenu_top li a:hover, .hlavicka ul li.over ul.submenu_top li a:hover {
 	text-decoration: none;
 	background-color: transparent;
 	color: #FA0CCA;
@@ -181,10 +181,10 @@ background-image:url('background.jpg');
 .hlavicka ul li:hover ul.type02, .hlavicka ul li.over ul.type02 {
 	background-color: #091929;
 	border: 1px solid #0099FF;
-	padding: 11px 0 11px 10px;	
+	padding: 11px 0 11px 10px;
 }
 .hlavicka ul li:hover ul.type02 li, .hlavicka ul li.over ul.type02 li {
-	width: 160px;	
+	width: 160px;
 	padding: 0 10px 0 0px;
 	background: none;
 	position: relative;

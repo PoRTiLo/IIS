@@ -5,4 +5,4 @@
 	header("Content-Disposition: attachment; filename=data.xml");
 
 	readfile ("data.xml");
-?> 
+?>

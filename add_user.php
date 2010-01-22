@@ -1,25 +1,14 @@
-<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
-<link rel="stylesheet" href="styles.css" type="text/css">
-<title>Informacny system</title>
-</head>
-<body>
 <?php
-/* 
- * Pridani noveho uzivatele.
- * Zkontrolovani vstupnich dat jen na zaklade reg vyrazu, zatim bez databaze
- *
- */
 
-header("Content-Type: text/html; charset=iso-8859-2");
 include 'default.php';
-require_once('common.inc');
+
+   $file = $files['common'];
+   require_once ("$file");
+require_once ("$file");
 session_name('RT_kontext');
 session_start();
 
- $_SESSION['lang'] = 0;
+$_SESSION['lang'] = 0;
 $error[]=array();
 $error['name']="";
 $error['surname']="";
@@ -29,29 +18,31 @@ $error['email']="";
 $error['user']="";
 $repeat = FALSE;
 
-/**
- * Zobrazi formular pro pridani uzivatele
- * @global <array> $error
- * @global <array> $text
- * @param <string> $name
- * @param <string> $surname
- * @param <string> $login
- * @param <string> $pass
- * @param <string> $email
- */
+
 			global $languageCz;
 			global $defaulLanguage;
 			global $text;
 			$_SESSION['lang']=$defaultLanguage;
-			echo "".$text['s_menu'][$_SESSION['lang']]."";
- 
+         
+/**
+ *
+ * @global <type> $error
+ * @global <type> $text
+ * @global <type> $files
+ * @param <type> $name
+ * @param <type> $surname
+ * @param <type> $login
+ * @param <type> $pass
+ * @param <type> $email 
+ */
 function writeForm($name, $surname, $login, $pass, $email) {
 	global $error;
 	global $text;
+   global $files;
 	
 	echo"
 	<div class=\"formular\">
-		<form action=\"add_user.php\" method=post>
+		<form action=".$files["addUser"]." method=post>
 				<h2><font color=red>".$error['user']."</font></h2>
 				<h2>".$text['add_player'][$_SESSION['lang']]."</h2>
 				<table>
@@ -241,11 +232,11 @@ function checkForm() {
 
 	}
 }
-checkForm();
-
+   $file = $files['showHead'];
+   require_once ("$file");
+   $file = $files['head'];
+   require_once ("$file");
+   $file = $files['rule'];
+   require_once ("$file");
 
 ?>
-
-</body>
-
-</html>

@@ -1,8 +1,6 @@
 <?php
 
    include 'default.php';
-   $file = $files["connect"];
-   require_once ("$file");
    $file = $files['common'];
    require_once ("$file");
    session_name('RT_kontext');
@@ -21,13 +19,12 @@
    $error['family']="";
    $error['referee']="";
 
-
    /**
+    *	Vypise formular
     *
     * @global <type> $error
     * @global <type> $text
     * @global <type> $files
-    * @param <type> $id
     * @param <type> $name
     * @param <type> $surname
     * @param <type> $date
@@ -37,15 +34,16 @@
     * @param <type> $zip
     * @param <type> $state
     */
-   function writeFormReferee($id,$name, $surname, $date, $hometown, $street, $city, $zip, $state) {
+   function writeForm($name, $surname, $date, $hometown, $street, $city, $zip, $state) {
+
       global $error;
       global $text;
       global $files;
       echo"
       <div class=\"formular\">
-         <form action=".$files["editReferee"]." method=post>
-            <h2><font color=red>".$error['referee']."</font></h2>
-            <h2>".$text['add_referee'][$_SESSION['lang']]."</h2>
+         <form action=".$files["addReferee"]." method=post>
+            <h4><font color=red>".$error['referee']."</font></h4>
+            <h4>".$text['add_referee'][$_SESSION['lang']]."</h4>
             <table>
                <tr><td>".$error['name']."</td> </tr>
                <tr> <td><b><font color=red>".$text['f_name'][$_SESSION['lang']]."</font></b></td>
@@ -75,111 +73,89 @@
                <tr> <td><b><font color=red>".$text['f_family'][$_SESSION['lang']]."</font>
                <td> ";echo callDropdownFamily()."</td></tr>
             </table><br>
-            <input type='hidden' name='check' value='true'>
-            <input type='hidden' name='id_referee' value=\"".$id."\"'>
             <input type=submit value=".$text['send_buttom'][$_SESSION['lang']].">
          </form>
       </div>
       ";
    }
-
+   
 
    /**
-    *
+    *	Zkontrolu vlozena data
     * @global <type> $error
     * @global <type> $text
     * @global <type> $defaultUser
     * @global <type> $czechWord
     */
    function checkForm() {
+
       global $error;
       global $text;
       global $defaultUser;
       global $czechWord;
 
-      if( $_POST["check"]=='false' )
+      if( empty($_POST) )
       {
-         editReferee();
+          writeForm("","","","","","","","");
       }
       else
       {
-         checkNameM();              //kontrola jmena
-         checkSurnameM();           //kontrola prijmeni
-         checkDateM();              //kontrola datumu narozeni
-         checkHometownM();          //kotrolo rodiste
-         checkStreet();             //kontrola ulice
-         checkCity();               //kontrola mesta
-         checkZipM();               //kontrola ZIP
-         checkFamilyM();            //kontrola rodinneho stavu
-         checkStateM();             //kontrola statu
+         checkNameM();           // kontrola jmena
+         checkSurnameM();        // kontrola prijmeni
+         checkDateM();           // kontrola datumu narozeni
+         checkHometownM();       // kotrolo rodiste
+         checkStreet();          // kontrola ulice
+         checkCity();            // kontrola mesta
+         checkZipM();            // kontrola ZIP
+         checkFamilyM();         // kontrola rodinneho stavu
+         checkState();           // kontrola statu
 
       // tisk formulare
          if( !$error["name"]=="" || !$error["surname"]=="" || !$error["date"]=="" || !$error["hometown"]==""
-           || !$error["street"]=="" || !$error["city"]=="" || !$error["zip"]=="" || !$error["state"]=="" || !$error["state"]=="" || !$error["family"]=="")
+           || !$error["street"]=="" || !$error["city"]=="" || !$error["zip"]=="" || !$error["state"]=="" || !$error["state"]=="")
          {
-            writeFormReferee($_POST["id_referee"], $_POST["name"], $_POST["surname"], $_POST["date"], $_POST["hometown"], $_POST["street"], $_POST["city"], $_POST["zip"], $_POST["state"]);
+            writeForm($_POST["name"], $_POST["surname"], $_POST["date"], $_POST["hometown"], $_POST["street"], $_POST["city"], $_POST["zip"], $_POST["state"]);
          }
          else
          {
-            $error["referee"] = "";
-            $quastion = "UPDATE `ROZHODCI` SET `JMENO`='".$_POST["name"]."', `PRIJMENI`='".$_POST["surname"]."', `DATUM_NAROZENI`='".$_POST["date"]."',
-                        `RODISTE`='".$_POST["hometown"]."', `ULICE`='".$_POST["street"]."', `MESTO`='".$_POST["city"]."', `ZIP`='".$_POST["zip"]."', `STAT`='".strtoupper($_POST["state"])."', `RODINNY_STAV`='".$_POST["family"]."'
-                        WHERE `ID_ROZHODCI`='".$_POST["id_referee"]."';";
-            $query = mysql_query($quastion);
-            echo mysql_error();
-            if( !$query )
+            require_once('connect.inc');	// vlozi a ohodnoti inicializacni soubor
+
+            $query=mysql_query("SELECT * FROM `ROZHODCI` WHERE jmeno='".$_POST["name"]."' and
+                                                           prijmeni='".$_POST["surname"]."';");
+
+            if( mysql_num_rows($query) != 0 )	// hrac je jiz v databazi
             {
-               echo "<h2>".$text['not_insert_table'][ $_SESSION['lang']]." ROZHODCI.</h2>";
+              $error["referee"] = $text['no_referee'][ $_SESSION['lang']];
+              $_POST["name"] = "";
+              $_POST["surname"] = "";
+              checkForm();
             }
-            else
+            else	// hrac neni v databazi
             {
-               echo "<h2>ROZHODCI ".$text['insert_table'][ $_SESSION['lang']]."</h2>";
+               $error["referee"] = "";
+               $query = mysql_query("INSERT INTO `ROZHODCI`
+                           (JMENO, PRIJMENI, DATUM_NAROZENI, RODISTE, ULICE, MESTO, ZIP, STAT, RODINNY_STAV) VALUES
+                           ('".$_POST["name"]."', '".$_POST["surname"]."', '".$_POST["date"]."', '".$_POST["hometown"]."', '".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["zip"]."', '".$_POST["state"]."', '".$_POST["family"]."');"
+                        );
+               if( !$query )
+               {
+                  echo "<h2>".$text['not_insert_table'][ $_SESSION['lang']]." HRAC.</h2>";
+               }
+               else
+               {
+                  echo "<h2>ROZHODCI ".$text['insert_table'][ $_SESSION['lang']]."</h2>";
+                  echo"vypsat to co se tam dalo";
+               }
             }
          }
-
       }
-   }
-
-
-   /**
-    *
-    * @global <type> $file
-    */
-   function editReferee() {
-      global $file;
-      $edit_referee[]=array();
-
-      $edit_referee["name"]=$_POST["name"];
-      $edit_referee["surname"]=$_POST["surname"];
-      $query=mysql_query("SELECT * FROM `ROZHODCI` WHERE JMENO='".$edit_referee["name"]."' and PRIJMENI='".$edit_referee["surname"]."';");
-
-      if( mysql_num_rows($query) == 0 )	// hrac je jiz v databazi
-      {
-         echo "<h2>".$text['table_full'][ $_SESSION['lang']]."</h2>";
-      }
-      else
-      {
-         $row = mysql_fetch_array($query);
-
-         $edit_referee["id"] = $row["ID_ROZHODCI"];
-         $edit_referee["name"]=$row["JMENO"];
-         $edit_referee["surname"]=$row["PRIJMENI"];
-         $edit_referee["date"]=$row["DATUM_NAROZENI"];
-         $edit_referee["hometown"]=$row["RODISTE"];
-         $edit_referee["street"]=$row["ULICE"];
-         $edit_referee["city"]=$row["MESTO"];
-         $edit_referee["zip"]=$row["ZIP"];
-         $edit_referee["state"]=$row["STAT"];
-         $edit_referee["family"]=$row["RODINNY_STAV"];
-      }
-      writeFormReferee($edit_referee["id"], $edit_referee["name"],$edit_referee["surname"],$edit_referee["date"], $edit_referee["hometown"],$edit_referee["street"],$edit_referee["city"],$edit_referee["zip"], $edit_referee["state"]);
    }
 
    $file = $files['showHead'];
    require_once ("$file");
    $file = $files['head'];
    require_once ("$file");
-
-   checkForm();
-
+   $file = $files['rule'];
+   require_once ("$file");
+   
 ?>
