@@ -1,0 +1,217 @@
+/* horne menu hlavicky */
+body {
+color: white;
+background-color: black;
+background-image:url('background.jpg');
+/*margin:0 auto 0 auto;*/
+
+}
+
+
+.welcome {
+	text-align: center;
+	margin: 50px 0px 0px 0px;
+}
+
+.mainpage a.first{
+	margin: 20px 5px 20px 5px;
+}
+
+.mainpage a{
+	margin: 5px 5px 5px 5px;
+}
+
+.mainpage{
+	position: relative;
+	text-align: center;
+	list-style-type: none;
+	width: 250px;
+	background-color: #091929;
+	clolor: white;
+	margin: 220px 20px 0px 20px;
+}
+
+
+.mainpage ul li a{
+	display:block;
+	position: relative;
+	text-decoration: none;
+	list-style-type: none;
+	color: #FFFFFF;
+}
+
+.mainpage ul li a:hover {
+	display:block;
+	text-decoration: none;
+	background-color: #01B4FF;
+	color: white;list
+	list-style-type: none;
+}
+
+.mainpage ul{
+	text-decoration: none;
+	float: down;
+	width: 250px;
+	z-index: 9999;
+	margin: 0;
+	padding: 0;
+	border: 1px solid;
+	border-color: #01B4FF;
+	list-style-type: none;
+}
+
+.formular{
+    background-color: #091929;
+	color: white;
+	float: left;
+	border: 1px solid;
+	margin: 0 0 0 40px;
+	border-color: #01B4FF;
+}
+
+
+
+.formular table
+{
+	margin: 10px 5px 0px 5px;
+}
+
+.hlavicka .menu_top {
+	width: auto;
+	float: left;
+	position: relative;	
+	margin: 0 0 0 40px;
+}
+.hlavicka ul {
+	width: auto;
+	float: left;
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	padding: 0;
+	border: 1px solid;
+	border-color: #01B4FF;
+	list-style-type: none;
+}
+.hlavicka ul li {	
+	float: left;
+	position: relative;
+	margin: 10px 5px 0 5px;	
+}
+.hlavicka ul li a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 3px 5px 3px 5px;
+	overflow: hidden;
+	display: block;
+	font-size: 1.2em
+}
+.hlavicka ul li a:visited {
+	text-decoration: none;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 3px 5px 3px 5px;
+	overflow: hidden;
+	display: block
+}
+
+.hlavicka ul li a:hover {
+	text-decoration: none;
+	background-color: #303030;
+	color: #01B4FF
+}
+.hlavicka ul li a.link01 {
+	text-decoration: none;
+}
+.hlavicka ul li a.link01:hover {
+	text-decoration: none;
+	background-color: #0099FF;
+	color: #FFFFFF
+}
+.hlavicka ul li:hover a.link01, .hlavicka ul li.over a.link01 {
+	background-color: #0099FF;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.hlavicka ul li:hover a, .hlavicka ul li.over a {
+	background-color: #303030;
+}
+.hlavicka ul li ul.submenu_top {
+	display: none;
+}
+.hlavicka ul li:hover ul.submenu_top, .hlavicka ul li.over ul.submenu_top {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	width: 170px;
+	height: auto;
+	float: none;
+	padding: 10px 0px 18px 5px;
+	margin: 0;	
+	background-color: #000B13;
+	border: 1px solid #303030;
+	text-align: left;	
+}
+.hlavicka ul li:hover ul.submenu_top li, .hlavicka ul li.over ul.submenu_top li {
+	width: 130px;
+	height: auto;
+	float: left;
+	padding: 3px 10px 3px 30px;
+	margin: 0;
+	background: url("/templates/images/arrow.gif") 10px 6px no-repeat;
+}
+.hlavicka ul li:hover ul.submenu_top li a, .hlavicka ul li.over ul.submenu_top li a {
+	color: #C0C0C0;
+	text-decoration: underline;
+	font-weight: normal;
+	padding: 0;
+	background-color: transparent;
+	font-size: 12px
+}
+.hlavicka ul li:hover ul.submenu_top li a:hover, .hlavicka ul li.over ul.submenu_top li a:hover {	
+	text-decoration: none;
+	background-color: transparent;
+	color: #FA0CCA;
+}
+.hlavicka ul li:hover ul.submenu_top li.selected a, .hlavicka ul li.over ul.submenu_top li.selected a {
+	color: #00A8EB;
+	text-decoration: none;
+}
+.hlavicka ul li:hover ul.type02, .hlavicka ul li.over ul.type02 {
+	background-color: #091929;
+	border: 1px solid #0099FF;
+	padding: 11px 0 11px 10px;	
+}
+.hlavicka ul li:hover ul.type02 li, .hlavicka ul li.over ul.type02 li {
+	width: 160px;	
+	padding: 0 10px 0 0px;
+	background: none;
+	position: relative;
+	z-index: 1
+}
+.hlavicka ul li:hover ul.type02 li a, .hlavicka ul li.over ul.type02 li a {
+	width: 140px;
+	color: #FFFFFF;
+	padding: 4px 0 4px 20px;
+	text-decoration: none;
+	background: url("/templates/images/arrow3.gif") 5px 8px no-repeat;
+}
+.hlavicka ul li:hover ul.type02 li a.nadkat, .hlavicka ul li.over ul.type02 li a.nadkat {
+	font-weight: bold
+}
+.hlavicka ul li:hover ul.type02 li a.podkat, .hlavicka ul li.over ul.type02 li a.podkat {
+	width: 130px;
+	padding: 4px 0 4px 30px;
+}
+.hlavicka ul li:hover ul.type02 li a:hover, .hlavicka ul li.over ul.type02 li a:hover {
+	color: #000B13;
+	text-decoration: none;
+	background: #0099FF url("/templates/images/arrow3_a.gif") 5px 8px no-repeat;
+}
+.hlavicka ul li:hover ul.type02 li a.active, .hlavicka ul li.over ul.type02 li a.active {
+	color: #FA0CCA;
+}
+.hlavicka ul li:hover ul.type02 li a.active:hover, .hlavicka ul li.over ul.type02 li a.active:hover {
+	color: #FFFFFF;
+}

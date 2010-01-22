@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavièce dokumentu 
+     podle pou¾itého editoru -->
+
+<h1>Mistrovství svìta ve fotbalu</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoøi</dt>
+	<dd>První autor 
+	    <a href="mailto:xsendl00@stud.fit.vutbr.cz">xsendl00@stud.fit.vutbr.cz</a> -
+		správa u¾ivatelù a u¾ivatelské rozhraní
+	</dd>
+	<dd>Druhý autor
+	    <a href="mailto:xkovac21@stud.fit.vutbr.cz">xkovac2102@stud.fit.vutbr.cz</a> - 
+		databázový subsystém
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://stud.fit.vutbr.cz/~xsendl00/IIS">http://stud.fit.vutbr.cz/~xsendl00/IIS</a></dd>
+	<dd>(pokud má aplikace více vstupních stránek, napi¹te obdobnì dal¹í URL)</dd>
+</dl>
+
+<h2>U¾ivatelé systému pro testování</h2>
+<p>Uveïte prosím existující zástupce <strong>v¹ech rolí u¾ivatelù</strong>.</p>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin</td><td>admin</td><td>Administrátor</td></tr>
+</table>
+
+<h2>Implementace</h2>
+<h2>Implementace</h2>
+<p>Informaèní systém Mistroství svìta ve fotbalu, rozli¹uje dva typy u¾ivatelù. To je mens¹í zmìna oproti pùvodnímu USE-CASE diagram.
+Uznali jsm eza vhodné u¾ivatele èlen oranizaèního týmu a statistika slouèit do jedno a to do u¾ivatela admin. Tento u¾ivatel má plné právo 
+pracovat jak s informaèním informaèním systémem tak provádìt akce nad  databází je¾ jsou nezbytná. Dal¹ím u¾ivatelm IS je obyèejný user,
+je¾ databázi mù¾e procházet ani¾ by se musel registrovat èi pøihla¹ovat. To sebou nese ale jistá omezení - svým chovaním nemù¾e nijak IS ovlivnit.
+Je pouze jenom prohlí¾eèem. O zobrazovaní ùdaju pro prohlízení se starají souboru zaèínající slovem show jako show_match_new.php show_teams_new.php a dal¹í.
+
+Vratíme se zpìt k administrátorovi. V jeho pravomoceh je pøidávat týmy (add_team_new.php) editova je(edit_team.php). Soubory je¾ slou¾í k editaci zaèínají slùvkem edit
+a k pøidávání slou¾í add.
+
+
+
+<h2>Instalace</h2>
+Pro funkènost informaèního systému je potøeba naplnit databázi. K tomu slou¾í soubor install.php a <a href='connect.inc'>connect.inc</a><br>Connect.inc je soubor obsahující informace k pøipojení k databázi, musíte jej tedy vplnit:
+<ul>
+DEFINE('DB_USER','xsendl00');
+DEFINE('DB_PASS','n4jertur');
+DEFINE('DB_SOURCE','localhost:/var/run/mysql/mysql.sock');
+DEFINE('DB_DATABASE','RT');
+<li>DB_USER - u¾ivatelské jméno datatbáze</li>
+<li>BB_PASS - heslo do databáze</li>
+<li>DB_SOURCE - umístìní databáze</li>
+<li>DB_DATABASE - jméno databáze</li>
+</ul>
+Nyní ji¾ mù¾ete spustit script <a href='install.php'>install.php</a>, který se pomocí ji¾ zmiòovaného souboru connect.inc pøipojí k databázi a naplní ji minimálním
+mno¾stvím údajù, na kterých je mo¾né si vyzkou¹et funkènost informaèního systému.
+</body>
+</html>
